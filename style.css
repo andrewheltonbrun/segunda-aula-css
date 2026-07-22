@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AULA 2 DE CSS — Instituto Vocação  (Aula 8: Transições e Animações)
+   AULA 2 DE CSS — Vocação  (Aula 8: Transições e Animações)
    Este arquivo veio da Aula 1. Hoje você vai:
    1) Personalizar cores, tamanhos e fontes aqui embaixo (sozinho);
    2) Ajustar o .menu (transição) e criar o botão "Voltar ao topo" com o professor;
@@ -21,15 +21,15 @@
 
 /* 🎨 PERSONALIZE AQUI: troque a fonte e a cor do texto do site inteiro */
 body {
-  font-family: 'Inter', Arial, sans-serif;
-  color: #2c3e50;
-  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 99, 31);
+  line-height: 2.1;
 }
 
 /* 🎨 PERSONALIZE AQUI: troque as cores do degradê do cabeçalho */
 .topo {
-  background: linear-gradient(90deg, #0891b2, #22d3ee);
-  color: #fff;
+  background: linear-gradient(90deg, #004c33, #22eea3);
+  color: #000000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -39,7 +39,19 @@ body {
 }
 
 /* 🎬 Faça junto com o Professor: ANIMAÇÃO com @keyframes — o logo entra deslizando de cima quando a página abre */
-
+.logo{
+  animation: entrarDoTopo 0.8s ease-out both;
+}
+@keyframes entrarDoTopo{
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .menu a {
   color: #fff;
@@ -54,7 +66,19 @@ body {
    1) Criar o "traço" com ::after (ele começa com largura 0, ou seja, invisível)
    2) Avisar ao navegador que a largura (width) deve ANIMAR com transition
    3) No :hover, mudar a largura para 100% — a transition faz o resto sozinha */
-
+.menu a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0f172a;
+  transition: width .3s ease;
+}
+.menu a:hover::after{
+  width: 100%;
+}
 section {
   padding: 3rem 2rem;
   max-width: 1100px;
